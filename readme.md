@@ -49,6 +49,8 @@ pip install pandas
 pip install notebook
 pip install matplotlib
 pip install statsmodels
+pip install cython
+pip install fbprophet
 #run
 jupyter notebook
 ```
