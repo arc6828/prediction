@@ -43,16 +43,25 @@ pip freeze > requirements.txt
 pip install -r requirements.txt
 ```
 
+เมื่อต้องการ uninstall dependency จาก requirement.txt
+```bash
+pip uninstall -r requirements.txt
+```
+
 dependency ที่พื้นฐานที่จำเป็นต้องใช้งาน สำหรับ โปรเจคนี้
 ```bash
 pip install pandas
 pip install notebook
 pip install matplotlib
 pip install statsmodels
+
+pip install prophet
+
+pip install scikit-learn
+pip install tensorflow
+pip install keras
+
 pip install cython
-pip install fbprophet
-#run
-jupyter notebook
 ```
 
 run notebook
@@ -74,4 +83,16 @@ cd prediction
 re-install your dependencies from requirements.txt
 ```bash
 pip install -r requirements.txt
+```
+
+## Caution
+prophet has some bug during change version to numpy 2.0.0, fix bug by change type float from "np.float_" to "np.float64" in site-packages/prophet/forecaster.py
+```python
+    @staticmethod
+    def fourier_series(
+        dates: pd.Series,
+        period: Union[int, float],
+        series_order: int,
+    ) -> NDArray[np.float64]:
+        print("sommething happend here")
 ```
